@@ -1,8 +1,14 @@
 ## Compilador para Linguagem Natural
 
-### Disciplina: Compiladores - CEFET-MG
+### Implementação para um ChatBot
+
+#### Disciplina: Compiladores - Engenharia Da Computação - CEFET-MG
 
 Implementação da Análise Léxica
+
+Cenário: Empresa Acer
+
+Atuação: Venda de equipamentos de informatica, como notebook, monitor, mouse, dentre outros.
 
 Compilador possui as seguintes etapas:
 
