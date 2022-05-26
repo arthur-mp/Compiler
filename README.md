@@ -1,18 +1,19 @@
-## Getting Started
+## Compilador para Linguagem Natural
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### Disciplina: Compiladores - CEFET-MG
 
-## Folder Structure
+Implementação da Análise Léxica
 
-The workspace contains two folders by default, where:
+Compilador possui as seguintes etapas:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+    . Análise Léxica:
+        . Verifica o alfabeto
+        . Gera Lexemas
+        . Gera Fila de Tokens
+        . Gera Tabela de Símbolos
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+    . Análise Sintática
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+    . Otimizador
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+    . Tradutor
