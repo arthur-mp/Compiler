@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Compiler_a4fb2b55"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -16,7 +23,7 @@
             "request": "launch",
             "mainClass": "lexicon.App",
             "projectName": "Compiler_a4fb2b55",
-            "console":"integratedTerminal"
+            "console": "integratedTerminal"
         }
     ]
 }
