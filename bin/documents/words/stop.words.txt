@@ -474,6 +474,7 @@ obteve
 ocupado
 oh
 oi
+olá
 oitava
 oitavo
 oito

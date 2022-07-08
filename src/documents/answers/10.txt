@@ -1,0 +1,1 @@
+Formas de pagamento aceitas: a vista, boleto bancario, cartao de credito, pix.

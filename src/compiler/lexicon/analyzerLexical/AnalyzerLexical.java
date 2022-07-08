@@ -23,19 +23,28 @@ public class AnalyzerLexical {
         this.listKeyWords = new ArrayList<>();
     }
 
+    public List<String> getListSimbols() {
+        return this.listSimbols;
+    }
+
     public void analyzer(List<Character> wordsFile) {
         try {
-            List<String> words = verificationLexical(wordsFile);
+            List<String> words = verificationAlphabet(wordsFile);
 
             words = removeStopWords(words);
 
             words = verificationLexemas(words);
 
+            for (int i = 0; i < words.size(); i++) {
+                words.set(i, words.get(i).toLowerCase());
+            }
+
             listTokens = words;
 
-            setUpListKeyWords();
+            getKeyWords();
 
-            createListSimbols();
+            // createListSimbols();
+            listSimbols = words;
 
         } catch (ErrorLexicon e) {
 
@@ -45,7 +54,7 @@ public class AnalyzerLexical {
         }
     }
 
-    private List<String> verificationLexical(List<Character> wordsFile) {
+    private List<String> verificationAlphabet(List<Character> wordsFile) {
         AlphabetAnalyzer alphabetAnalyzer = new AlphabetAnalyzer();
 
         return alphabetAnalyzer.analyzer(wordsFile);
@@ -65,12 +74,12 @@ public class AnalyzerLexical {
 
     private void createListSimbols() {
         for (int i = 0; i < this.listTokens.size(); i++) {
-            if (!verificationKeyWord(this.listTokens.get(i)))
+            if (!verificationKeyWord(this.listTokens.get(i).toLowerCase()))
                 this.listSimbols.add(this.listTokens.get(i));
         }
     }
 
-    private void setUpListKeyWords() {
+    private void getKeyWords() {
         try {
             File doc = new File("src/documents/words/key.words.txt");
 
@@ -78,11 +87,11 @@ public class AnalyzerLexical {
 
             String words = new String(fileContent, "UTF-8");
 
-            String[] stopWords = words.split("\n");
+            String[] keyWords = words.split("\n");
 
-            for (int i = 0; i < stopWords.length; i++) {
-                if (!stopWords[i].equals("\r"))
-                    this.listKeyWords.add(stopWords[i].strip());
+            for (int i = 0; i < keyWords.length; i++) {
+                if (!keyWords[i].equals("\r"))
+                    this.listKeyWords.add(keyWords[i].strip());
             }
 
         } catch (IOException e) {

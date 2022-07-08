@@ -7,19 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.tartarus.snowball.SnowballStemmer;
-import org.tartarus.snowball.ext.portugueseStemmer;
-
 import static java.lang.String.format;
 
 public class LexemeAnalyzer {
 
-    private final SnowballStemmer stemmer;
-
     private Map<String, String> listLexemas;
 
     public LexemeAnalyzer() {
-        stemmer = new portugueseStemmer();
         setUpTableLexemas();
     }
 
@@ -30,21 +24,11 @@ public class LexemeAnalyzer {
 
             if (newWord != null) {
                 words.set(i, newWord);
-            } else {
-                String wordLexema = validSnowballLexeme(words.get(i).toLowerCase());
-                if (wordLexema != null) {
-                    words.set(i, wordLexema);
-                }
             }
 
         }
 
         return words;
-    }
-
-    private String validSnowballLexeme(String word) {
-        stemmer.setCurrent(word);
-        return stemmer.stem() ? stemmer.getCurrent() : null;
     }
 
     private String validKeyWordsLexeme(String word) {

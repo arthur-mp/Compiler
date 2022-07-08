@@ -4,94 +4,35 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import compiler.lexicon.analyzerLexical.AnalyzerLexical;
+import compiler.translator.Translator;
 
 public class App {
     public static void main(String[] args) {
-        Scanner intScanner = new Scanner(System.in);
         Scanner textScanner = new Scanner(System.in, "CP850");
 
-        print();
+        greetings();
 
-        int option = 0;
+        String words = textScanner.nextLine();
 
-        while (option != 3) {
-            option = intScanner.nextInt();
+        List<Character> wordList = words.chars().mapToObj(e -> (char) e).collect(Collectors.toList());
 
-            switch (option) {
-                case 1:
-                    String words = textScanner.nextLine();
+        AnalyzerLexical analyzerLexical = new AnalyzerLexical();
 
-                    List<Character> wordList = words.chars().mapToObj(e -> (char) e).collect(Collectors.toList());
+        analyzerLexical.analyzer(wordList);
 
-                    AnalyzerLexical analyzerLexical = new AnalyzerLexical();
 
-                    analyzerLexical.analyzer(wordList);
+        Translator translator = new Translator();
 
-                    analyzerLexical.printLists();
-
-                    try {
-                        Thread.sleep(8000);
-                    } catch (InterruptedException ex) {
-                    }
-
-                    print();
-
-                    break;
-
-                case 2:
-
-                    help();
-
-                    try {
-                        Thread.sleep(10000);
-                    } catch (InterruptedException ex) {
-                    }
-
-                    print();
-
-                    break;
-
-                case 3:
-
-                    bye();
-
-                    break;
-            }
-        }
+        translator.getAnswers(analyzerLexical.getListSimbols());
 
     }
 
-    public static void print() {
+    public static void greetings() {
         System.out.println("********** Chat Bot Acer **********");
         System.out.println();
-        System.out.println("Opções:");
-        System.out.println("(1) Digitar");
-        System.out.println("(2) Ajuda");
-        System.out.println("(3) Sair");
-        System.out.println("*************************************");
+        System.out.println("Desenvolvido por: Arthur Morais Pimentel");
         System.out.println();
-    }
-
-    public static void help() {
-        System.out.println("*************************************");
-        System.out.println();
-        System.out.println("Modelos de informações fornecidas pelo usuário:");
-        System.out.println("=> Meu monitor está piscando!");
-        System.out.println("=> Meu notebook é gamer");
-        System.out.println();
-        System.out.println("Modelos de perguntas feitas pelo usuário:");
-        System.out.println("=> Como instalar o drive de áudio no notebook gamer?");
-        System.out.println("=> Qual o valor de um notebook profissional?");
-        System.out.println();
-        System.out.println("Espero ter ajudado!");
-        System.out.println("*************************************");
-        System.out.println();
-    }
-
-    public static void bye() {
-        System.out.println("*************************************");
-        System.out.println();
-        System.out.println("Até a próxima!");
+        System.out.println("Digite o que desejar, dado o cenário de  uma empresa de tecnologia, Acer!");
         System.out.println();
         System.out.println("*************************************");
         System.out.println();
